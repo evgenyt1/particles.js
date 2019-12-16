@@ -115,7 +115,7 @@ var Particles = (function(window, document) {
       return false;
     }
 
-    _.element = document.querySelector(_.options.selector);
+    _.element = _.options.selector.tagName ? _.options.selector : document.querySelector(_.options.selector);
     _.context = _.element.getContext('2d');
 
     devicePixelRatio = window.devicePixelRatio || 1;
