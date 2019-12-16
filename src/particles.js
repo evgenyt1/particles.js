@@ -72,7 +72,7 @@ var Particles = (function(window, document) {
     var _ = this;
 
     _.options = _._extend(_.defaults, settings);
-    _.originalSettings = JSON.parse(JSON.stringify(_.options));
+    _.originalSettings = _.options;//JSON.parse(JSON.stringify(_.options));
 
     _._animate = _._animate.bind(_);
 
@@ -458,7 +458,7 @@ var Particles = (function(window, document) {
     _.context = context;
     _.options = options;
 
-    var canvas = document.querySelector(options.selector);
+    var canvas = options.selector.tagName ? options.selector : document.querySelector(options.selector);
     _.x = (canvas.offsetParent) ? random() * canvas.offsetParent.clientWidth : random() * canvas.clientWidth;
 
     if (canvas.offsetParent && canvas.offsetParent.nodeName === 'BODY') {
